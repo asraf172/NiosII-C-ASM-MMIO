@@ -1,10 +1,9 @@
-
 # Nios II Bare-Metal Hardware-Software Interface
 
 ## Overview
-This repository demonstrates a low-level, bare-metal implementation of a recursive spatial distance algorithm, written in both **C** and **Nios II Assembly**. The project was deployed and tested on a real **Altera DE2 FPGA**, showcasing direct Hardware-Software interaction without an underlying operating system.
+This repository demonstrates a low-level, bare-metal implementation of a recursive spatial distance algorithm, written in both **C** and **Nios II Assembly**. The project was successfully deployed and tested on a physical **Altera DE2 FPGA**, showcasing direct Hardware-Software interaction without an underlying operating system.
 
-The algorithm calculates the squared distance between two coordinates $(x_1,y_1)$ and $(x_2,y_2)$, and recursively determines how many segments of length $L=1$ fit within that distance.
+The algorithm calculates the squared distance between two coordinates (x1, y1) and (x2, y2), and recursively determines how many segments of length L=1 fit within that distance.
 
 ## Hardware-Software Interface (MMIO)
 A core focus of this project is driving external hardware peripherals-specifically, a 7-Segment display-using **Memory-Mapped I/O (MMIO)**. 
@@ -22,10 +21,10 @@ The 7-segment display does not accept standard decimal integers. Therefore, a cu
 * `distance_calc.c` - High-level implementation featuring recursive logic and `volatile` pointers for MMIO.
 * `distance_calc.s` - Low-level Nios II Assembly implementation featuring manual stack management (`sp`, `ra`) for recursion and `stwio` for direct hardware control.
 
-## Execution on Real Hardware (FPGA)
-Below are captures from the FPGA execution, demonstrating the CPU registers, memory state, and the physical 7-segment display successfully outputting the calculated result:
+## Verification & Internal State
+While the code was fully executed on the physical FPGA, the following captures are taken from the cycle-accurate simulator used during the debugging phase. This provides a clear, inside look into the CPU registers processing the assembly logic, and the emulated 7-segment display outputting the calculated result (`05`) directly from the memory-mapped address:
 
-<img width="560" height="113" alt="image" src="https://github.com/user-attachments/assets/5ef2c7d2-3ce5-4121-a9cf-65b71db30b87" />
+<img width="560" height="113" alt="image" src="https://github.com/user-attachments/assets/830adcbb-2b21-422d-bb12-41a4e6ad3947" />
 
 
-
+<img width="445" height="694" alt="image" src="https://github.com/user-attachments/assets/f22f76f0-9b84-48c8-81a8-7507c84988fa" />
