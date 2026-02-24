@@ -1,4 +1,4 @@
-# NiosII-C-ASM-MMIO
+
 # Nios II Bare-Metal Hardware-Software Interface
 
 ## Overview
@@ -7,7 +7,7 @@ This repository demonstrates a low-level, bare-metal implementation of a recursi
 The algorithm calculates the squared distance between two coordinates $(x_1,y_1)$ and $(x_2,y_2)$, and recursively determines how many segments of length $L=1$ fit within that distance.
 
 ## Hardware-Software Interface (MMIO)
-A core focus of this project is driving external hardware peripherals—specifically, a 7-Segment display—using **Memory-Mapped I/O (MMIO)**. 
+A core focus of this project is driving external hardware peripherals-specifically, a 7-Segment display—using **Memory-Mapped I/O (MMIO)**. 
 
 Since the 7-segment display is an I/O peripheral and not standard memory, it is mapped to a specific hardware address (`0x10000020`). Writing to this address directly alters the hardware state. However, standard memory operations can be cached by the CPU, which would prevent real-time hardware updates. 
 
@@ -25,4 +25,8 @@ The 7-segment display does not accept standard decimal integers. Therefore, a cu
 ## Execution on Real Hardware (FPGA)
 Below are captures from the FPGA execution, demonstrating the CPU registers, memory state, and the physical 7-segment display successfully outputting the calculated result:
 
-*(Drag and drop your 3 images from the Word document here: The 7-segment showing '5', the Registers window, and the Memory window)*
+<img width="560" height="113" alt="image" src="https://github.com/user-attachments/assets/5ef2c7d2-3ce5-4121-a9cf-65b71db30b87" />
+
+<img width="445" height="694" alt="image" src="https://github.com/user-attachments/assets/a8ad70b5-f2e1-4967-91ea-9babd1441d56" />
+
+
